@@ -2,9 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #f = lambda x,y : np.sqrt(2*x*y)-x-y
+
 f = lambda x,y : 2*x+y
 d = np.linspace(-100,100,2000)
 x,y = np.meshgrid(d,d)
+
 im1 = plt.imshow(((f(x,y)<5)).astype(int),
                 extent=(x.min(),x.max(),y.min(),y.max()),origin="lower", cmap="Greys")
 plt.title("ejercicio 1 - 1") 
@@ -52,5 +54,23 @@ im2 = plt.imshow(((f(x,y)<=180) & (g(x,y)<=160) & (h(x,y)<=100) & (x>=0) & (y>=0
 plt.title("ejercicio 1 - 6") 
 plt.show()
 
+f = lambda x,y : x
+g = lambda x,y : 2*y
+h = lambda x,y : 3*x+2*y
+d = np.linspace(0,15,2000)
+x,y = np.meshgrid(d,d)
+im2 = plt.imshow(((f(x,y)<=4) & (g(x,y)<=12) & (h(x,y)<=18) & (x>=0) & (y>=0)).astype(int),
+                extent=(x.min(),x.max(),y.min(),y.max()),origin="lower", cmap="Greys")
+plt.title("ejercicio 1 - maximizar") 
+plt.show()
 
+f = lambda x,y : 120*x + 100*y
+g = lambda x,y : 2*x + 5*y
+
+d = np.linspace(0,50,2000)
+x,y = np.meshgrid(d,d)
+im2 = plt.imshow(((f(x,y)>=100) & (g(x,y)>=30)  & (x>=0) & (y>=0)).astype(int),
+                extent=(x.min(),x.max(),y.min(),y.max()),origin="lower", cmap="Greys")
+plt.title("ejercicio 2 - minimizar") 
+plt.show()
 
